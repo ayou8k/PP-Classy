@@ -1,4 +1,7 @@
 package enset.pip.virtualclass.dao;
 
-public interface PermissionRepository {
+import enset.pip.virtualclass.entities.Permission;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PermissionRepository extends JpaRepository<Permission,Long> {
 }

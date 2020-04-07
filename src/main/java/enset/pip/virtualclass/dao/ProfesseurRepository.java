@@ -1,4 +1,7 @@
 package enset.pip.virtualclass.dao;
 
-public interface ProfesseurRepository {
+import enset.pip.virtualclass.entities.Professeur;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProfesseurRepository extends JpaRepository<Professeur,Long> {
 }

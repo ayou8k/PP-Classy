@@ -1,4 +1,7 @@
 package enset.pip.virtualclass.dao;
 
-public interface RoleRepository {
+import enset.pip.virtualclass.entities.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RoleRepository extends JpaRepository<Role,Long> {
 }
