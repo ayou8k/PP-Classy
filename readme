@@ -1,0 +1,2 @@
+.gitignore is a file you wish git to ignore when using commit
+You may have problems with the file application.properties so just change whatever u want but it won't figure in the pushed version in git
