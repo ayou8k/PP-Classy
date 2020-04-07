@@ -1,0 +1,37 @@
+package enset.pip.virtualclass.entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.Set;
+
+@Data @NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+public class Classe {
+    @Id @GeneratedValue
+    private Long Id;
+    private String code;
+
+    @ManyToOne
+    @JoinColumn
+    private Filiere filiere;
+
+    @ManyToOne
+    @JoinColumn
+    private AnneeUniversitaire anneeUniversitaire;
+
+    @ManyToOne
+    @JoinColumn
+    private Niveau niveau;
+
+//    @OneToMany
+//    private Set<Etudiant> etudiants;
+
+//    @OneToMany
+//    private Set<Professeur> professeurs;
+}
