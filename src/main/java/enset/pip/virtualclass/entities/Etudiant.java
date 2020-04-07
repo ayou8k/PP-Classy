@@ -28,6 +28,9 @@ public class Etudiant {
 	@OneToOne
 	Diplome diplome;
 
+	@OneToOne
+	Compte compte;
+
 	@ManyToOne
 	@JoinColumn
 	private Classe classe;
