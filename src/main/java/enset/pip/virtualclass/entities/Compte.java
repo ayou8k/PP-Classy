@@ -27,5 +27,5 @@ public class Compte {
     @OneToOne(mappedBy="compte")
     AgentScolarite agentScolarite;
     @OneToOne(mappedBy="compte")
-    Professeur professeur;
+    Professeur professeur ;
 }
