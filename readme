@@ -7,4 +7,4 @@ git add .
 git commit -m "a custom message to know the content of the commit
 git push
 =========================================================
-Push : makes gets the things u don't have on your local repository
+pull : makes gets the things u don't have on your local repository
