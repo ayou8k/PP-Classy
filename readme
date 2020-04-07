@@ -1,2 +1,10 @@
 .gitignore is a file you wish git to ignore when using commit
 You may have problems with the file application.properties so just change whatever u want but it won't figure in the pushed version in git
+=========================================================
+To Push use the following commands :
+git pull
+git add .
+git commit -m "a custom message to know the content of the commit
+git push
+=========================================================
+Push : makes gets the things u don't have on your local repository
