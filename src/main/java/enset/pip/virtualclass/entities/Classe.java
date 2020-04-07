@@ -29,8 +29,8 @@ public class Classe {
     @JoinColumn
     private Niveau niveau;
 
-//    @OneToMany
-//    private Set<Etudiant> etudiants;
+    @OneToMany(mappedBy = "classe")
+    private Set<Etudiant> etudiants;
 
 //    @OneToMany
 //    private Set<Professeur> professeurs;
