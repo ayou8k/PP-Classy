@@ -39,4 +39,11 @@ public class Compte {
 
     @ManyToMany
     List<Group> groupList;
+
+    @OneToMany(mappedBy = "compte")
+    private Set<Comment> comments;
+
+    @ManyToOne
+    @JoinColumn
+    private Publication publication;
 }

@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.awt.*;
 import java.util.Date;
 import java.util.Set;
 
@@ -27,8 +28,9 @@ public class Comment {
     @JoinColumn
     private Publication publication;
 
-//    @OneToMany(mappedBy = "comment")
-//    private Set<Compte> comptes;
+    @ManyToOne
+    @JoinColumn
+    private Compte compte;
 
     @OneToMany(mappedBy = "comment")
     private Set<State> states;

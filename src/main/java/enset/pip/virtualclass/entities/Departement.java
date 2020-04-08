@@ -21,6 +21,6 @@ public class Departement {
     @OneToMany(mappedBy = "departement")
     private Set<Filiere> filieres;
 
-//    @OneToMany(mappedBy = "departement")
-//    private Set<Professeur> professeurs;
+    @OneToMany(mappedBy = "departement")
+    private Set<Professeur> professeurs;
 }

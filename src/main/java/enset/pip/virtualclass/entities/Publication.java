@@ -26,9 +26,9 @@ public class Publication {
     @JoinColumn
     private Categorie categorie;
 
-//    @ManyToOne
-//    @JoinColumn
-//    private Compte compte;
+    @ManyToOne
+    @JoinColumn
+    private Compte compte;
 
     @ManyToOne
     @JoinColumn
