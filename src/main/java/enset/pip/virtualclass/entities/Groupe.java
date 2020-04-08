@@ -14,10 +14,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Group {
+public class Groupe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY  )
-    Long id;
+    Long id_groupe;
     String nom;
     String DateCreation;
 
@@ -26,5 +26,6 @@ public class Group {
 
     @ManyToMany
     List<Compte> compteList;
-
+    @ManyToMany
+    Set<Tache> taches;
 }
