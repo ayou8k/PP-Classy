@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -19,5 +20,5 @@ public class Role {
     private Long id;
     private  String designation;
     @ManyToMany
-    List<Permission> permissionList;
+    private Set<Permission> permissions;
 }

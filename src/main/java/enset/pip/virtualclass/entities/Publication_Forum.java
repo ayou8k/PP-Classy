@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Publication {
+public class Publication_Forum {
     @Id
     @GeneratedValue
     private Long Id;
@@ -26,15 +26,15 @@ public class Publication {
     @JoinColumn
     private Categorie categorie;
 
-//    @ManyToOne
-//    @JoinColumn
-//    private Compte compte;
+    @ManyToOne
+    @JoinColumn
+    private Compte compte;
 
     @ManyToOne
     @JoinColumn
-    private State state;
+    private Statut statut;
 
-    @OneToMany(mappedBy = "publication")
-    private Set<Comment> comments;
+    @OneToMany(mappedBy = "publicationForum")
+    private Set<Commentaire> commentaires;
 
 }

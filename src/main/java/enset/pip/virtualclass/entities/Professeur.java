@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Data
 @Entity
@@ -26,5 +27,12 @@ public class Professeur {
     private String email;
     @OneToOne
     Compte compte;
+
+    @ManyToOne
+    @JoinColumn
+    private Departement departement;
+
+    @ManyToMany
+    private Set<Classe> classes;
 
 }

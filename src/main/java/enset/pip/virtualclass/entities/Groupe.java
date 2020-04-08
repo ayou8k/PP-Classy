@@ -14,17 +14,19 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Group {
+public class Groupe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY  )
-    Long id;
+    Long id_groupe;
     String nom;
     String DateCreation;
 
-    @OneToMany(mappedBy = "group")
-    private Set<Message> messageSet;
+    @OneToMany(mappedBy = "groupe")
+    private Set<Message> messages;
 
     @ManyToMany
-    List<Compte> compteList;
+    private Set<Compte> comptes;
+    @ManyToMany
+    Set<Tache> taches;
 
 }

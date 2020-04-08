@@ -1,27 +1,28 @@
 package enset.pip.virtualclass.entities;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Message {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
-    Long id;
-    String contenu;
-
+public class NoteDevoir {
+    @EmbeddedId
+    NoteDevoirCle id;
     @ManyToOne
-    @JoinColumn
-    private Groupe groupe;
-
+    @MapsId("devoir_id")
+    @JoinColumn(name = "devoir_id")
+    Publication_Devoir devoir;
     @ManyToOne
-    @JoinColumn
-    private Compte compte;
+    @MapsId("etudiant_id")
+    @JoinColumn(name = "etudiant_id")
+    Etudiant etudiant;
+    int note;
 }

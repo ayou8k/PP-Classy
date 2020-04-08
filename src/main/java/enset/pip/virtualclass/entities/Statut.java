@@ -13,18 +13,18 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class State {
+public class Statut {
     @Id
     @GeneratedValue
     private Long Id;
 
     private String nom;
 
-    @OneToMany(mappedBy = "state")
-    private Set<Publication> publications;
+    @OneToMany(mappedBy = "statut")
+    private Set<Publication_Forum> publicationForums;
 
     @ManyToOne
     @JoinColumn
-    private Comment comment;
+    private Commentaire commentaire;
 
 }

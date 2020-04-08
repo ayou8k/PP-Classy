@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Comment {
+public class Commentaire {
     @Id
     @GeneratedValue
     private Long Id;
@@ -25,12 +25,13 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn
-    private Publication publication;
+    private Publication_Forum publicationForum;
 
-//    @OneToMany(mappedBy = "comment")
-//    private Set<Compte> comptes;
+    @ManyToOne
+    @JoinColumn
+    private Compte compte;
 
-    @OneToMany(mappedBy = "comment")
-    private Set<State> states;
+    @OneToMany(mappedBy = "commentaire")
+    private Set<Statut> statuts;
 
 }

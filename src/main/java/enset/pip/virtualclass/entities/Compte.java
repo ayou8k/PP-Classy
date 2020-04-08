@@ -27,16 +27,23 @@ public class Compte {
 
     //hadchi yajouz wla la?
     @OneToOne(mappedBy="compte")
-    Etudiant etudiant;
+    private Etudiant etudiant;
     @OneToOne(mappedBy="compte")
-    AgentScolarite agentScolarite;
+    private AgentScolarite agentScolarite;
     @OneToOne(mappedBy="compte")
-    Professeur professeur ;
+    private Professeur professeur;
     //?
 
     @OneToMany(mappedBy = "compte")
-    private Set<Message> messageSets;
+    private Set<Message> messages;
 
     @ManyToMany
-    List<Group> groupList;
+    private Set<Groupe> groupes;
+
+    @OneToMany(mappedBy = "compte")
+    private Set<Commentaire> commentaires;
+
+    @ManyToOne
+    @JoinColumn
+    private Publication_Forum publicationForum;
 }
