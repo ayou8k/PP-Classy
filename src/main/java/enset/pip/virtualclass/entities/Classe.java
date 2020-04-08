@@ -35,4 +35,7 @@ public class Classe {
     @ManyToMany
     private Set<Professeur> professeurs;
 
+    @ManyToMany
+    private Set<Element_module> element_modules;
+
 }

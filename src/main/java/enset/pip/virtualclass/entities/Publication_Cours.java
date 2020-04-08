@@ -21,6 +21,7 @@ public class Publication_Cours {
     Date datePublication;
     String pieces_jointes;
     //ELEMENT MODULE
-
+    @ManyToOne
+    Element_module element_module;
 
 }

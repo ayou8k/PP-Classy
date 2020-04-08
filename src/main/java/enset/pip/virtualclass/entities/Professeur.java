@@ -35,4 +35,7 @@ public class Professeur {
     @ManyToMany
     private Set<Classe> classes;
 
+    @OneToMany(mappedBy = "professeur")
+    Set<Element_module> Element_module;
+
 }
