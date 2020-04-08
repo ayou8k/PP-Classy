@@ -20,5 +20,5 @@ public class Permission {
     private Long id;
     private  String designation;
     @ManyToMany
-    List<Role> roleList;
+    private Set<Role> roles;
 }

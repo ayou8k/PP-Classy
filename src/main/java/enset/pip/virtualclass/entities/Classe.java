@@ -32,6 +32,7 @@ public class Classe {
     @OneToMany(mappedBy = "classe")
     private Set<Etudiant> etudiants;
 
-//    @OneToMany
-//    private Set<Professeur> professeurs;
+    @ManyToMany
+    private Set<Professeur> professeurs;
+
 }

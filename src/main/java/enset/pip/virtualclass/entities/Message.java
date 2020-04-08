@@ -15,10 +15,11 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY  )
     Long id;
-    String Contenu_msg;
+    String contenu;
+
     @ManyToOne
     @JoinColumn
-    private Group group;
+    private Groupe groupe;
 
     @ManyToOne
     @JoinColumn
