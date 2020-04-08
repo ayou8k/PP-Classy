@@ -23,6 +23,6 @@ public class Categorie {
     private String nom;
 
     @OneToMany(mappedBy = "categorie")
-    private Set<Publication> publications;
+    private Set<Publication_Forum> publicationForums;
 
 }

@@ -4,11 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.awt.*;
-import java.util.Date;
 import java.util.Set;
 
 @Data
@@ -16,23 +13,28 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Comment {
+public class Publication_Forum {
     @Id
     @GeneratedValue
     private Long Id;
-    private String texte;
-    @DateTimeFormat
-    private Date date_commentaire;
+
+    private String titre;
+    private String contenu;
+    private String files;
 
     @ManyToOne
     @JoinColumn
-    private Publication publication;
+    private Categorie categorie;
 
     @ManyToOne
     @JoinColumn
     private Compte compte;
 
-    @OneToMany(mappedBy = "comment")
-    private Set<State> states;
+    @ManyToOne
+    @JoinColumn
+    private Statut statut;
+
+    @OneToMany(mappedBy = "publicationForum")
+    private Set<Commentaire> commentaires;
 
 }
