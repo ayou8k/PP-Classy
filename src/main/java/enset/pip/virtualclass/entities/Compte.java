@@ -7,6 +7,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,10 +24,19 @@ public class Compte {
     @Size(min=6,max=10)
     private String password;
 
+
+    //hadchi yajouz wla la?
     @OneToOne(mappedBy="compte")
     Etudiant etudiant;
     @OneToOne(mappedBy="compte")
     AgentScolarite agentScolarite;
     @OneToOne(mappedBy="compte")
     Professeur professeur ;
+    //?
+
+    @OneToMany(mappedBy = "compte")
+    private Set<Message> messageSets;
+
+    @ManyToMany
+    List<Group> groupList;
 }
