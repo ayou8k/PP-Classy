@@ -19,5 +19,5 @@ public class NoteTacheCle implements Serializable {
     Long tacheId;
 
     @Column(name = "groupe_id")
-    String groupeId;
+    Long groupeId;
 }
