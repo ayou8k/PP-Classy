@@ -15,7 +15,7 @@ import java.util.Set;
 @ToString
 public class Publication_Forum {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY  )
     private Long Id;
 
     private String titre;

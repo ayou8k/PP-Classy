@@ -13,7 +13,8 @@ import java.util.Set;
 @ToString
 @Entity
 public class Classe {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY  )
     private Long Id;
     private String code;
 

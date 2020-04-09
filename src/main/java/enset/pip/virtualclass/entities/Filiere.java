@@ -13,7 +13,7 @@ import java.util.Set;
 @ToString
 public class Filiere {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY  )
     private Long Id;
     private String description;
 

@@ -15,7 +15,7 @@ import java.util.Set;
 @ToString
 public class Statut {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY  )
     private Long Id;
 
     private String nom;
