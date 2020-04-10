@@ -32,6 +32,6 @@ public class Commentaire {
     private Compte compte;
 
     @OneToMany(mappedBy = "commentaire")
-    private Set<Statut> statuts;
+    private Set<Status> statuses;
 
 }

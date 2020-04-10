@@ -32,7 +32,7 @@ public class Publication_Forum {
 
     @ManyToOne
     @JoinColumn
-    private Statut statut;
+    private Status status;
 
     @OneToMany(mappedBy = "publicationForum")
     private Set<Commentaire> commentaires;

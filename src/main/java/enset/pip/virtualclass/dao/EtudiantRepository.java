@@ -10,12 +10,11 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.List;
-
 @RepositoryRestResource
 
 public interface EtudiantRepository extends JpaRepository<Etudiant, String>{
     @RestResource(path="/byFiliere")
-     List<Etudiant> findEtudiantByClasseContains(@Param("mc") String des);
+     List<Etudiant> findEtudiantByClasseCode(@Param("mc") String des);
     @RestResource(path="/byFilierePage")
-     Page<Etudiant> findEtudiantByClasseContains(@Param("mc") String des, Pageable pageable);
+     Page<Etudiant> findEtudiantByClasseCode(@Param("mc") String des, Pageable pageable);
 }
