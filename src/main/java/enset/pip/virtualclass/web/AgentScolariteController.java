@@ -19,7 +19,7 @@ public class AgentScolariteController {
     @GetMapping(value = "listAgentScolarites/{id}")
     public AgentScolarite listAgentScolarites(@PathVariable(name="id") Long id)
     {
-        return agentScolariteRepository.findById(id).orElse(null);
+        return agentScolariteRepository.findById(id).orElse(null) ;
     }
     @PutMapping(value = "listAgentScolarites/{id}")
     public AgentScolarite Update(@PathVariable(name="id") Long id, @RequestBody AgentScolarite e)
