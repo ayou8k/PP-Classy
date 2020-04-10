@@ -3,10 +3,8 @@ package enset.pip.virtualclass.web;
 import enset.pip.virtualclass.dao.EtudiantRepository;
 import enset.pip.virtualclass.entities.Etudiant;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Id;
 import java.util.List;
 
 @RestController
@@ -22,7 +20,7 @@ public class EtudiantRestServices {
      @GetMapping(value = "listEtudiants/{id}")
              public Etudiant listEtudiants(@PathVariable(name="id") String id)
      {
-         return etudiantRepository.findById(id).get();
+         return etudiantRepository.findById(id).orElse(null);
      }
     @PutMapping(value = "listEtudiants/{id}")
     public Etudiant Update(@PathVariable(name="id") String id, @RequestBody Etudiant e)

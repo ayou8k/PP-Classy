@@ -2,68 +2,41 @@ package enset.pip.virtualclass.web;
 
 import enset.pip.virtualclass.dao.CategorieRepository;
 import enset.pip.virtualclass.entities.Categorie;
-import enset.pip.virtualclass.exceptions.CategorieNotFoundException;
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.EntityModel;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
-class CategorieController {
-    private final CategorieRepository categorieRepository;
 
-    CategorieController(CategorieRepository categorieRepository){
-        this.categorieRepository = categorieRepository;
+public class CategorieController {
+    @Autowired
+    private CategorieRepository categorieRepository;
+    @GetMapping(value = "/listCategories")
+    public List<Categorie> listCategories()
+    {
+        return categorieRepository.findAll();
     }
 
-    @GetMapping("/categories")
-    CollectionModel<EntityModel<Categorie>> all() {
-        List categories = categorieRepository.findAll().stream()
-                .map(categorie -> new EntityModel(categorie,
-                        linkTo(methodOn(CategorieController.class).one(categorie.getId())).withSelfRel(),
-                        linkTo(methodOn(CategorieController.class).all()).withRel("categories")))
-                .collect(Collectors.toList());
-
-        return new CollectionModel<>(categories,
-                linkTo(methodOn(CategorieController.class).all()).withSelfRel());
+    @GetMapping(value = "listCategories/{id}")
+    public Categorie listCategories(@PathVariable(name="id") Long id)
+    {
+        return categorieRepository.findById(id).orElse(null);
     }
-
-    @PostMapping("/categories")
-    Categorie newCategorie(@RequestBody Categorie newCategorie) {
-        return categorieRepository.save(newCategorie);
+    @PutMapping(value = "listCategories/{id}")
+    public Categorie Update(@PathVariable(name="id") Long id, @RequestBody Categorie e)
+    {
+        e.setId(id);
+        return categorieRepository.save(e);
     }
-
-    // Single item
-
-    @GetMapping("/categories/{id}")
-    EntityModel<Categorie> one(@PathVariable Long id) {
-
-        Categorie categorie = categorieRepository.findById(id)
-                .orElseThrow(() -> new CategorieNotFoundException(id));
-        return new EntityModel<>(categorie,
-                linkTo(methodOn(CategorieController.class).one(id)).withSelfRel(),
-                linkTo(methodOn(CategorieController.class).all()).withRel("categories"));
+    @PostMapping(value = "listCategories/")
+    public Categorie save(@RequestBody Categorie e)
+    {
+        return categorieRepository.save(e);
     }
-
-    @PutMapping("/categories/{id}")
-    Categorie replaceCategorie(@RequestBody Categorie newCategorie, @PathVariable Long id) {
-
-        return categorieRepository.findById(id)
-                .map(categorie -> {
-                    categorie.setNom(newCategorie.getNom());
-                    return categorieRepository.save(categorie);
-                })
-                .orElseGet(() -> {
-                    newCategorie.setId(id);
-                    return categorieRepository.save(newCategorie);
-                });
-    }
-
-    @DeleteMapping("/categories/{id}")
-    void deleteCategorie(@PathVariable Long id) {
+    @DeleteMapping(value = "listCategories/{id}")
+    public void delete(@PathVariable(name="id") Long id)
+    {
         categorieRepository.deleteById(id);
     }
 }
