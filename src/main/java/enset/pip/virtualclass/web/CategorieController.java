@@ -3,11 +3,13 @@ package enset.pip.virtualclass.web;
 import enset.pip.virtualclass.dao.CategorieRepository;
 import enset.pip.virtualclass.entities.Categorie;
 import enset.pip.virtualclass.exceptions.CategorieNotFoundException;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 class CategorieController {
@@ -18,8 +20,15 @@ class CategorieController {
     }
 
     @GetMapping("/categories")
-    List<Categorie> all() {
-        return categorieRepository.findAll();
+    CollectionModel<EntityModel<Categorie>> all() {
+        List categories = categorieRepository.findAll().stream()
+                .map(categorie -> new EntityModel(categorie,
+                        linkTo(methodOn(CategorieController.class).one(categorie.getId())).withSelfRel(),
+                        linkTo(methodOn(CategorieController.class).all()).withRel("categories")))
+                .collect(Collectors.toList());
+
+        return new CollectionModel<>(categories,
+                linkTo(methodOn(CategorieController.class).all()).withSelfRel());
     }
 
     @PostMapping("/categories")
