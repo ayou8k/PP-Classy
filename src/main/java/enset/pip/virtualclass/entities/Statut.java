@@ -15,10 +15,10 @@ import java.util.Set;
 @ToString
 public class Statut {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY  )//test giignore
     private Long Id;
 
-    private String nom;
+    private String nomee;
 
     @OneToMany(mappedBy = "statut")
     private Set<Publication_Forum> publicationForums;
