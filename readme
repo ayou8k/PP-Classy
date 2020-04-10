@@ -8,3 +8,17 @@ git commit -m "a custom message to know the content of the commit"
 git push
 =========================================================
 pull : makes gets the things u don't have on your local repository
+
+============================================================
+
+git checkout -b branchName /////// create a branch and switch to that branch
+
+git push --set-upstream origin branchName /////// push to your wished branch
+
+git branch --list ////// easy
+
+git pull origin master ///////// pull from master branch
+
+===========================================================
+
+don't work in master anymore
