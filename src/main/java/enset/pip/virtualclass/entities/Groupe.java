@@ -17,7 +17,7 @@ import java.util.Set;
 public class Groupe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY  )
-    Long id_groupe;
+    Long id;
     String nom;
     String DateCreation;
 

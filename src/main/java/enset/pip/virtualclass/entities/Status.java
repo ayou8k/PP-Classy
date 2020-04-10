@@ -13,14 +13,14 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Statut {
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY  )//test giignore
     private Long Id;
 
     private String nomee;
 
-    @OneToMany(mappedBy = "statut")
+    @OneToMany(mappedBy = "status")
     private Set<Publication_Forum> publicationForums;
 
     @ManyToOne
