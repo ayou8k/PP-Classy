@@ -12,31 +12,30 @@ import java.util.List;
 public class FiliereController {
     @Autowired
     private FiliereRepository filiereRepository;
+
     @GetMapping(value = "/listFilieres")
-    public List<Filiere> listFilieres()
-    {
+    public List<Filiere> listFilieres() {
         return filiereRepository.findAll();
     }
 
     @GetMapping(value = "listFilieres/{id}")
-    public Filiere listFilieres(@PathVariable(name="id") Long id)
-    {
+    public Filiere listFilieres(@PathVariable(name = "id") Long id) {
         return filiereRepository.findById(id).orElse(null);
     }
+
     @PutMapping(value = "listFilieres/{id}")
-    public Filiere Update(@PathVariable(name="id") Long id, @RequestBody Filiere e)
-    {
+    public Filiere Update(@PathVariable(name = "id") Long id, @RequestBody Filiere e) {
         e.setId(id);
         return filiereRepository.save(e);
     }
+
     @PostMapping(value = "listFilieres/")
-    public Filiere save(@RequestBody Filiere e)
-    {
+    public Filiere save(@RequestBody Filiere e) {
         return filiereRepository.save(e);
     }
+
     @DeleteMapping(value = "listFilieres/{id}")
-    public void delete(@PathVariable(name="id") Long id)
-    {
+    public void delete(@PathVariable(name = "id") Long id) {
         filiereRepository.deleteById(id);
     }
 }

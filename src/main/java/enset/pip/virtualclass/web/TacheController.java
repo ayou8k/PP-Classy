@@ -12,31 +12,30 @@ import java.util.List;
 public class TacheController {
     @Autowired
     private TacheRepository tacheRepository;
+
     @GetMapping(value = "/listTaches")
-    public List<Tache> listTaches()
-    {
+    public List<Tache> listTaches() {
         return tacheRepository.findAll();
     }
 
     @GetMapping(value = "listTaches/{id}")
-    public Tache listTaches(@PathVariable(name="id") Long id)
-    {
+    public Tache listTaches(@PathVariable(name = "id") Long id) {
         return tacheRepository.findById(id).orElse(null);
     }
+
     @PutMapping(value = "listTaches/{id}")
-    public Tache Update(@PathVariable(name="id") Long id, @RequestBody Tache e)
-    {
+    public Tache Update(@PathVariable(name = "id") Long id, @RequestBody Tache e) {
         e.setId_Tache(id);
         return tacheRepository.save(e);
     }
+
     @PostMapping(value = "listTaches/")
-    public Tache save(@RequestBody Tache e)
-    {
+    public Tache save(@RequestBody Tache e) {
         return tacheRepository.save(e);
     }
+
     @DeleteMapping(value = "listTaches/{id}")
-    public void delete(@PathVariable(name="id") Long id)
-    {
+    public void delete(@PathVariable(name = "id") Long id) {
         tacheRepository.deleteById(id);
     }
 }

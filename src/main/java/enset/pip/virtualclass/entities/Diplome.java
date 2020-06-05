@@ -15,21 +15,24 @@ import lombok.ToString;
 
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Diplome {
-	@javax.persistence.Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY  )
-	Long Id;
-	@NotNull
-	String nom;//Diplomat Name : DUT , Licence etc ...
-	@NotNull
-	String filiere;//Genie Info , Licence ISI
-	@NotNull
-	String mention;//Bien , Tres Bien , Assez Bien , Passable
-	@DateTimeFormat(iso = ISO.DATE)
-	Date dateObtention;
+    @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long Id;
+    @NotNull
+    String nom;//Diplomat Name : DUT , Licence etc ...
+    @NotNull
+    String filiere;//Genie Info , Licence ISI
+    @NotNull
+    String mention;//Bien , Tres Bien , Assez Bien , Passable
+    @DateTimeFormat(iso = ISO.DATE)
+    Date dateObtention;
 
-	@OneToOne(mappedBy="diplome")
-	Etudiant etudiant;
+    @OneToOne(mappedBy = "diplome")
+    Etudiant etudiant;
 
 }

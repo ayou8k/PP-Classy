@@ -17,11 +17,11 @@ import java.util.Set;
 @ToString
 public class Professeur {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
     private String prenom;
-    @Size(min=10,max=15)
+    @Size(min = 10, max = 15)
     private String tel;
     @Email
     private String email;

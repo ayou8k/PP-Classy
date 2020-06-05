@@ -12,32 +12,31 @@ import java.util.List;
 public class DepartementController {
     @Autowired
     private DepartementRepository departementRepository;
+
     @GetMapping(value = "/listDepartements")
-    public List<Departement> listDepartements()
-    {
+    public List<Departement> listDepartements() {
         return departementRepository.findAll();
     }
 
     @GetMapping(value = "listDepartements/{id}")
-    public Departement listDepartements(@PathVariable(name="id") Long id)
-    {
+    public Departement listDepartements(@PathVariable(name = "id") Long id) {
         return departementRepository.findById(id).orElse(null);
     }
+
     @PutMapping(value = "listDepartements/{id}")
-    public Departement Update(@PathVariable(name="id") Long id, @RequestBody Departement e)
-    {
+    public Departement Update(@PathVariable(name = "id") Long id, @RequestBody Departement e) {
         e.setId(id);
         return departementRepository.save(e);
     }
+
     @PostMapping(value = "listDepartements/")
-    public Departement save(@RequestBody Departement e)
-    {
+    public Departement save(@RequestBody Departement e) {
         return departementRepository.save(e);
     }
+
     @DeleteMapping(value = "listDepartements/{id}")
-    public void delete(@PathVariable(name="id") Long id)
-    {
+    public void delete(@PathVariable(name = "id") Long id) {
         departementRepository.deleteById(id);
     }
-    
+
 }

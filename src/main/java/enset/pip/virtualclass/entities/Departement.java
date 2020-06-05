@@ -8,12 +8,14 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Set;
 
-@Data @Entity @NoArgsConstructor
+@Data
+@Entity
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class Departement {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String label;
     private String code;

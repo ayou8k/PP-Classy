@@ -16,9 +16,9 @@ import java.util.Set;
 @ToString
 public class Permission {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private  String designation;
+    private String designation;
     @ManyToMany
     private Set<Role> roles;
 }

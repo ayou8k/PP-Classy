@@ -18,19 +18,19 @@ import java.util.Set;
 
 public class Compte {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     private String login;
-    @Size(min=6,max=10)
+    @Size(min = 6, max = 10)
     private String password;
 
 
     //hadchi yajouz wla la?
-    @OneToOne(mappedBy="compte")
+    @OneToOne(mappedBy = "compte")
     private Etudiant etudiant;
-    @OneToOne(mappedBy="compte")
+    @OneToOne(mappedBy = "compte")
     private AgentScolarite agentScolarite;
-    @OneToOne(mappedBy="compte")
+    @OneToOne(mappedBy = "compte")
     private Professeur professeur;
     //?
 

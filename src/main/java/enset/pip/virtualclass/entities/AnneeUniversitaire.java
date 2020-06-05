@@ -9,12 +9,13 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Data
-@Entity @NoArgsConstructor
+@Entity
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class AnneeUniversitaire {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String annee;
 

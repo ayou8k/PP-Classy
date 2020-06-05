@@ -13,31 +13,30 @@ import java.util.List;
 public class NoteTacheController {
     @Autowired
     private NoteTacheRepository noteTacheRepository;
+
     @GetMapping(value = "/listNoteTaches")
-    public List<NoteTache> listNoteTaches()
-    {
+    public List<NoteTache> listNoteTaches() {
         return noteTacheRepository.findAll();
     }
 
     @GetMapping(value = "listNoteTaches/{id}")
-    public NoteTache listNoteTaches(@PathVariable(name="id") NoteTacheCle id)
-    {
+    public NoteTache listNoteTaches(@PathVariable(name = "id") NoteTacheCle id) {
         return noteTacheRepository.findById(id).orElse(null);
     }
+
     @PutMapping(value = "listNoteTaches/{id}")
-    public NoteTache Update(@PathVariable(name="id") NoteTacheCle id, @RequestBody NoteTache e)
-    {
+    public NoteTache Update(@PathVariable(name = "id") NoteTacheCle id, @RequestBody NoteTache e) {
         e.setId(id);
         return noteTacheRepository.save(e);
     }
+
     @PostMapping(value = "listNoteTaches/")
-    public NoteTache save(@RequestBody NoteTache e)
-    {
+    public NoteTache save(@RequestBody NoteTache e) {
         return noteTacheRepository.save(e);
     }
+
     @DeleteMapping(value = "listNoteTaches/{id}")
-    public void delete(@PathVariable(name="id") NoteTacheCle id)
-    {
+    public void delete(@PathVariable(name = "id") NoteTacheCle id) {
         noteTacheRepository.deleteById(id);
     }
 }

@@ -12,31 +12,30 @@ import java.util.List;
 public class PermissionController {
     @Autowired
     private PermissionRepository permissionRepository;
+
     @GetMapping(value = "/listPermissions")
-    public List<Permission> listPermissions()
-    {
+    public List<Permission> listPermissions() {
         return permissionRepository.findAll();
     }
 
     @GetMapping(value = "listPermissions/{id}")
-    public Permission listPermissions(@PathVariable(name="id") Long id)
-    {
+    public Permission listPermissions(@PathVariable(name = "id") Long id) {
         return permissionRepository.findById(id).orElse(null);
     }
+
     @PutMapping(value = "listPermissions/{id}")
-    public Permission Update(@PathVariable(name="id") Long id, @RequestBody Permission e)
-    {
+    public Permission Update(@PathVariable(name = "id") Long id, @RequestBody Permission e) {
         e.setId(id);
         return permissionRepository.save(e);
     }
+
     @PostMapping(value = "listPermissions/")
-    public Permission save(@RequestBody Permission e)
-    {
+    public Permission save(@RequestBody Permission e) {
         return permissionRepository.save(e);
     }
+
     @DeleteMapping(value = "listPermissions/{id}")
-    public void delete(@PathVariable(name="id") Long id)
-    {
+    public void delete(@PathVariable(name = "id") Long id) {
         permissionRepository.deleteById(id);
     }
 }

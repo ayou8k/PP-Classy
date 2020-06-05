@@ -2,6 +2,7 @@ package enset.pip.virtualclass.entities;
 
 
 import lombok.*;
+
 import javax.persistence.*;
 
 @Entity

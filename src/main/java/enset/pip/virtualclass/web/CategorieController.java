@@ -12,31 +12,30 @@ import java.util.List;
 public class CategorieController {
     @Autowired
     private CategorieRepository categorieRepository;
+
     @GetMapping(value = "/listCategories")
-    public List<Categorie> listCategories()
-    {
+    public List<Categorie> listCategories() {
         return categorieRepository.findAll();
     }
 
     @GetMapping(value = "listCategories/{id}")
-    public Categorie listCategories(@PathVariable(name="id") Long id)
-    {
+    public Categorie listCategories(@PathVariable(name = "id") Long id) {
         return categorieRepository.findById(id).orElse(null);
     }
+
     @PutMapping(value = "listCategories/{id}")
-    public Categorie Update(@PathVariable(name="id") Long id, @RequestBody Categorie e)
-    {
+    public Categorie Update(@PathVariable(name = "id") Long id, @RequestBody Categorie e) {
         e.setId(id);
         return categorieRepository.save(e);
     }
+
     @PostMapping(value = "listCategories/")
-    public Categorie save(@RequestBody Categorie e)
-    {
+    public Categorie save(@RequestBody Categorie e) {
         return categorieRepository.save(e);
     }
+
     @DeleteMapping(value = "listCategories/{id}")
-    public void delete(@PathVariable(name="id") Long id)
-    {
+    public void delete(@PathVariable(name = "id") Long id) {
         categorieRepository.deleteById(id);
     }
 }

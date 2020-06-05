@@ -17,7 +17,7 @@ import java.util.Set;
 @ToString
 public class Commentaire {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String texte;
     @DateTimeFormat

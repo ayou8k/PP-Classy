@@ -7,7 +7,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Inheritance(
         strategy = InheritanceType.TABLE_PER_CLASS
 )
@@ -17,7 +20,7 @@ public class Publication_Cours {
     Long Id;
     String titre;
     String contenu;
-    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     Date datePublication;
     String pieces_jointes;
     //ELEMENT MODULE

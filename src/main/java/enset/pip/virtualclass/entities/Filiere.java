@@ -7,13 +7,15 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
+
 @Data
-@Entity @NoArgsConstructor
+@Entity
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class Filiere {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String description;
 

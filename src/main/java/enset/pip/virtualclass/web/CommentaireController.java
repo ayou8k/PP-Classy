@@ -12,31 +12,30 @@ import java.util.List;
 public class CommentaireController {
     @Autowired
     private CommentaireRepository commentaireRepository;
+
     @GetMapping(value = "/listCommentaires")
-    public List<Commentaire> listCommentaires()
-    {
+    public List<Commentaire> listCommentaires() {
         return commentaireRepository.findAll();
     }
 
     @GetMapping(value = "listCommentaires/{id}")
-    public Commentaire listCommentaires(@PathVariable(name="id") Long id)
-    {
+    public Commentaire listCommentaires(@PathVariable(name = "id") Long id) {
         return commentaireRepository.findById(id).orElse(null);
     }
+
     @PutMapping(value = "listCommentaires/{id}")
-    public Commentaire Update(@PathVariable(name="id") Long id, @RequestBody Commentaire e)
-    {
+    public Commentaire Update(@PathVariable(name = "id") Long id, @RequestBody Commentaire e) {
         e.setId(id);
         return commentaireRepository.save(e);
     }
+
     @PostMapping(value = "listCommentaires/")
-    public Commentaire save(@RequestBody Commentaire e)
-    {
+    public Commentaire save(@RequestBody Commentaire e) {
         return commentaireRepository.save(e);
     }
+
     @DeleteMapping(value = "listCommentaires/{id}")
-    public void delete(@PathVariable(name="id") Long id)
-    {
+    public void delete(@PathVariable(name = "id") Long id) {
         commentaireRepository.deleteById(id);
     }
 }

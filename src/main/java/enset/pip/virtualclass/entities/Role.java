@@ -16,9 +16,9 @@ import java.util.Set;
 @ToString
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private  String designation;
+    private String designation;
     @ManyToMany
     private Set<Permission> permissions;
 }

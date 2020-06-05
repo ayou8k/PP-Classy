@@ -8,13 +8,14 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Set;
 
-@Data @NoArgsConstructor
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Entity
 public class Niveau {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String niveau;
 

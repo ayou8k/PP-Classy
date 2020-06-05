@@ -16,11 +16,11 @@ import javax.validation.constraints.Size;
 @ToString
 public class AgentScolarite {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
     private String prenom;
-    @Size(min=10,max=15)
+    @Size(min = 10, max = 15)
     private String tel;
     @Email
     private String email;

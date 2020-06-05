@@ -15,7 +15,7 @@ import java.util.Set;
 @ToString
 public class Element_module {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY  )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String designation;
     private String coeficient;
