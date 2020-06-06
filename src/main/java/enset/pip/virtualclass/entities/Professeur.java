@@ -1,10 +1,7 @@
 package enset.pip.virtualclass.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -27,11 +24,11 @@ public class Professeur {
     @Email
     private String email;
     @OneToOne
-    Compte compte;
+    @EqualsAndHashCode.Exclude Compte compte;
 
     @ManyToOne
     @JoinColumn
-    private Departement departement;
+    @EqualsAndHashCode.Exclude private Departement departement;
 
     @ManyToMany
     private Set<Classe> classes;

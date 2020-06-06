@@ -20,17 +20,14 @@ public class Element_module {
     private String coeficient;
 
     @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    Module module;
+    @EqualsAndHashCode.Exclude Module module;
 
     @ManyToMany
-    Set<Classe> classes;
+    @EqualsAndHashCode.Exclude Set<Classe> classes;
 
     @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    Professeur professeur;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "element_module")
+    @EqualsAndHashCode.Exclude Professeur professeur;
 
+    @OneToMany(mappedBy = "element_module")
     Set<Publication_Cours> Publication_Cours;
 }

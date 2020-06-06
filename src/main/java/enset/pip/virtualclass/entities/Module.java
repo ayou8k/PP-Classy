@@ -17,6 +17,7 @@ public class Module {
     @GeneratedValue(strategy = GenerationType.IDENTITY  )
     private Long id;
     private String designation;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "module")
     Set<Element_module> element_modules;
 }

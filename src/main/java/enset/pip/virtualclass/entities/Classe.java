@@ -1,9 +1,6 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -20,15 +17,15 @@ public class Classe {
 
     @ManyToOne
     @JoinColumn
-    private Filiere filiere;
+    @EqualsAndHashCode.Exclude private Filiere filiere;
 
     @ManyToOne
     @JoinColumn
-    private AnneeUniversitaire anneeUniversitaire;
+    @EqualsAndHashCode.Exclude private AnneeUniversitaire anneeUniversitaire;
 
     @ManyToOne
     @JoinColumn
-    private Niveau niveau;
+    @EqualsAndHashCode.Exclude private Niveau niveau;
 
     @OneToMany(mappedBy = "classe")
     private Set<Etudiant> etudiants;
@@ -37,6 +34,6 @@ public class Classe {
     private Set<Professeur> professeurs;
 
     @ManyToMany
-    private Set<Element_module> element_modules;
+    @EqualsAndHashCode.Exclude private Set<Element_module> element_modules;
 
 }
