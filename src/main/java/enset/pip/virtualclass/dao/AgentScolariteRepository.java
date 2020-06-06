@@ -11,14 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-<<<<<<< HEAD
 @RepositoryRestResource
 @CrossOrigin("*")
 public interface AgentScolariteRepository extends JpaRepository<AgentScolarite, Long> {
-=======
-@CrossOrigin("*")
-
-public interface AgentScolariteRepository extends JpaRepository<AgentScolarite,Long> {
->>>>>>> 92642c6641e18397803e99cad5c72548eb217296
 
 }

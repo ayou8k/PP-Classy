@@ -22,10 +22,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.inMemoryAuthentication().withUser("user1").password("{noop}1234").roles("USER");
 
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .usersByUsernameQuery("select login as principal,password as credentials from compte where login=?")
-                .authoritiesByUsernameQuery("select from roles");
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//                .usersByUsernameQuery("select login as principal,password as credentials from compte where login=?")
+//                .authoritiesByUsernameQuery("select from roles");
     }
 
     @Override
@@ -34,8 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.httpBasic();
 
         //all requests to be executed the user must be loggedIn
-        http.authorizeRequests().anyRequest().authenticated();
-        http.csrf().disable();
+//        http.authorizeRequests().anyRequest().authenticated();
+//        http.csrf().disable();
     }
 
     @Bean

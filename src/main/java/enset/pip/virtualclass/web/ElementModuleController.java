@@ -15,13 +15,7 @@ public class ElementModuleController {
     private Element_moduleRepository element_moduleRepository;
 
     @GetMapping(value = "/listElement_modules")
-<<<<<<< HEAD
     public List<Element_module> listElement_modules() {
-=======
-    public List<Element_module> listElement_modules()
-    {
-
->>>>>>> 92642c6641e18397803e99cad5c72548eb217296
         return element_moduleRepository.findAll();
     }
 
@@ -29,15 +23,12 @@ public class ElementModuleController {
     public Element_module listElement_modules(@PathVariable(name = "id") Long id) {
         return element_moduleRepository.findById(id).orElse(null);
     }
-<<<<<<< HEAD
-
-=======
     @GetMapping("/ElementsOfProf/{id}")
     public List<Element_module> listElement_modulesProf(@PathVariable(name="id") Long id)
     {
         return element_moduleRepository.findAllByProfesseurId(id);
     }
->>>>>>> 92642c6641e18397803e99cad5c72548eb217296
+
     @PutMapping(value = "listElement_modules/{id}")
     public Element_module Update(@PathVariable(name = "id") Long id, @RequestBody Element_module e) {
         e.setId(id);
