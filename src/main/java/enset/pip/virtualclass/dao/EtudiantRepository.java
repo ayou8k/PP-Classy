@@ -8,10 +8,10 @@ import enset.pip.virtualclass.entities.Etudiant;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
-@RepositoryRestResource
-
+@CrossOrigin("*")
 public interface EtudiantRepository extends JpaRepository<Etudiant, String>{
     @RestResource(path="/byFiliere")
      List<Etudiant> findEtudiantByClasseCode(@Param("mc") String des);

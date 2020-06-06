@@ -1,9 +1,8 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,9 +17,6 @@ public class Module {
     @GeneratedValue(strategy = GenerationType.IDENTITY  )
     private Long id;
     private String designation;
-
     @OneToMany(mappedBy = "module")
     Set<Element_module> element_modules;
-
-
 }

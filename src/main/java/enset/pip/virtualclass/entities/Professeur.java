@@ -1,5 +1,6 @@
 package enset.pip.virtualclass.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,6 +37,7 @@ public class Professeur {
     private Set<Classe> classes;
 
     @OneToMany(mappedBy = "professeur")
-    Set<Element_module> Element_module;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    Set<Element_module> element_module;
 
 }

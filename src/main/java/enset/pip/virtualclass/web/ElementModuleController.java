@@ -5,6 +5,7 @@ import enset.pip.virtualclass.entities.Element_module;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 @RestController
 
@@ -21,6 +22,11 @@ public class ElementModuleController {
     public Element_module listElement_modules(@PathVariable(name="id") Long id)
     {
         return element_moduleRepository.findById(id).orElse(null);
+    }
+    @GetMapping("/ElementsOfProf/{id}")
+    public List<Element_module> listElement_modulesProf(@PathVariable(name="id") Long id)
+    {
+        return element_moduleRepository.findAllByProfesseurId(id);
     }
     @PutMapping(value = "listElement_modules/{id}")
     public Element_module Update(@PathVariable(name="id") Long id, @RequestBody Element_module e)

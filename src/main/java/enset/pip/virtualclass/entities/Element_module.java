@@ -1,9 +1,8 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -21,14 +20,17 @@ public class Element_module {
     private String coeficient;
 
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     Module module;
 
     @ManyToMany
     Set<Classe> classes;
 
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     Professeur professeur;
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "element_module")
+
     Set<Publication_Cours> Publication_Cours;
 }

@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class EtudiantRestServices {
+
+public class EtudiantController {
      @Autowired
     private EtudiantRepository etudiantRepository;
      @GetMapping(value = "/listEtudiants")
