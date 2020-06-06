@@ -38,4 +38,5 @@ public class ProfesseurController {
     public void delete(@PathVariable(name = "id") Long id) {
         professeurRepository.deleteById(id);
     }
+
 }

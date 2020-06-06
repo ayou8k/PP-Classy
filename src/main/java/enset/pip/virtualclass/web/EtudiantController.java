@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+<<<<<<< HEAD:src/main/java/enset/pip/virtualclass/web/EtudiantRestServices.java
 public class EtudiantRestServices {
     @Autowired
+=======
+
+public class EtudiantController {
+     @Autowired
+>>>>>>> 92642c6641e18397803e99cad5c72548eb217296:src/main/java/enset/pip/virtualclass/web/EtudiantController.java
     private EtudiantRepository etudiantRepository;
 
     @GetMapping(value = "/listEtudiants")

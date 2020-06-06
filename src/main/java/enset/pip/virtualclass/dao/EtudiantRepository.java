@@ -11,6 +11,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
+<<<<<<< HEAD
 
 @RepositoryRestResource
 @CrossOrigin("*")
@@ -20,4 +21,12 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, String> {
 
     @RestResource(path = "/byFilierePage")
     Page<Etudiant> findEtudiantByClasseCode(@Param("mc") String des, Pageable pageable);
+=======
+@CrossOrigin("*")
+public interface EtudiantRepository extends JpaRepository<Etudiant, String>{
+    @RestResource(path="/byFiliere")
+     List<Etudiant> findEtudiantByClasseCode(@Param("mc") String des);
+    @RestResource(path="/byFilierePage")
+     Page<Etudiant> findEtudiantByClasseCode(@Param("mc") String des, Pageable pageable);
+>>>>>>> 92642c6641e18397803e99cad5c72548eb217296
 }
