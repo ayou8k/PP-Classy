@@ -13,28 +13,28 @@ public class NiveauController {
     @Autowired
     private NiveauRepository niveauRepository;
 
-    @GetMapping(value = "/listNiveaus")
-    public List<Niveau> listNiveaus() {
+    @GetMapping(value = "/listNiveaux")
+    public List<Niveau> listNiveaux() {
         return niveauRepository.findAll();
     }
 
-    @GetMapping(value = "listNiveaus/{id}")
-    public Niveau listNiveaus(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "listNiveaux/{id}")
+    public Niveau listNiveaux(@PathVariable(name = "id") Long id) {
         return niveauRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listNiveaus/{id}")
+    @PutMapping(value = "listNiveaux/{id}")
     public Niveau Update(@PathVariable(name = "id") Long id, @RequestBody Niveau e) {
         e.setId(id);
         return niveauRepository.save(e);
     }
 
-    @PostMapping(value = "listNiveaus/")
+    @PostMapping(value = "listNiveaux/")
     public Niveau save(@RequestBody Niveau e) {
         return niveauRepository.save(e);
     }
 
-    @DeleteMapping(value = "listNiveaus/{id}")
+    @DeleteMapping(value = "listNiveaux/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         niveauRepository.deleteById(id);
     }

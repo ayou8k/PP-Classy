@@ -1,9 +1,7 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -26,6 +24,8 @@ public class Publication_Projet extends Publication_Cours {
     int noteMaximaleProjet;
     int nbTaches;
     @OneToMany(mappedBy = "projet")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @EqualsAndHashCode.Exclude
     Set<Tache> taches;
 
 }

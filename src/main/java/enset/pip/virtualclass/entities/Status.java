@@ -1,9 +1,6 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -21,6 +18,7 @@ public class Status {
     private String nom;
 
     @OneToMany(mappedBy = "status")
+    @EqualsAndHashCode.Exclude
     private Set<Publication_Forum> publicationForums;
 
     @ManyToOne

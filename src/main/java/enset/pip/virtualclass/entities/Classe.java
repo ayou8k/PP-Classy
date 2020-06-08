@@ -1,5 +1,6 @@
 package enset.pip.virtualclass.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,10 +23,12 @@ public class Classe {
 
     @ManyToOne
     @JoinColumn
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @EqualsAndHashCode.Exclude private AnneeUniversitaire anneeUniversitaire;
 
     @ManyToOne
     @JoinColumn
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @EqualsAndHashCode.Exclude private Niveau niveau;
 
     @OneToMany(mappedBy = "classe")
@@ -35,6 +38,7 @@ public class Classe {
     private Set<Professeur> professeurs;
 
     @ManyToMany
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @EqualsAndHashCode.Exclude private Set<Element_module> element_modules;
 
 }

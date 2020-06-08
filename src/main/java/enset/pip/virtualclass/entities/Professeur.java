@@ -24,10 +24,12 @@ public class Professeur {
     @Email
     private String email;
     @OneToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @EqualsAndHashCode.Exclude Compte compte;
 
     @ManyToOne
     @JoinColumn
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @EqualsAndHashCode.Exclude private Departement departement;
 
     @ManyToMany

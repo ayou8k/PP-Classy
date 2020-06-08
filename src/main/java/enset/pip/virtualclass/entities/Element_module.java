@@ -29,5 +29,6 @@ public class Element_module {
     @EqualsAndHashCode.Exclude Professeur professeur;
 
     @OneToMany(mappedBy = "element_module")
+    @EqualsAndHashCode.Exclude
     Set<Publication_Cours> Publication_Cours;
 }

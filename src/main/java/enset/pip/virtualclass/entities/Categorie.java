@@ -1,9 +1,6 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -20,6 +17,7 @@ public class Categorie {
     private String nom;
 
     @OneToMany(mappedBy = "categorie")
+    @EqualsAndHashCode.Exclude
     private Set<Publication_Forum> publicationForums;
 
 }

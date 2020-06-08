@@ -1,9 +1,7 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -31,6 +29,7 @@ public class Compte {
     @OneToOne(mappedBy = "compte")
     private AgentScolarite agentScolarite;
     @OneToOne(mappedBy = "compte")
+    @EqualsAndHashCode.Exclude
     private Professeur professeur;
     //?
 
@@ -41,9 +40,11 @@ public class Compte {
     private Set<Groupe> groupes;
 
     @OneToMany(mappedBy = "compte")
-    private Set<Commentaire> commentaires;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @EqualsAndHashCode.Exclude  private Set<Commentaire> commentaires;
 
     @ManyToOne
     @JoinColumn
+    @EqualsAndHashCode.Exclude
     private Publication_Forum publicationForum;
 }

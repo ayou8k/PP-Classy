@@ -6,12 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
@@ -30,7 +26,7 @@ public class Etudiant {
     @Size(min = 10, max = 13)
     private String tel;
     @OneToOne
-    Diplome diplome;
+    @EqualsAndHashCode.Exclude Diplome diplome;
 
     @OneToOne
     Compte compte;

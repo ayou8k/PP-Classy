@@ -1,9 +1,7 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -21,7 +19,8 @@ public class Departement {
     private String code;
 
     @OneToMany(mappedBy = "departement")
-    private Set<Filiere> filieres;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @EqualsAndHashCode.Exclude private Set<Filiere> filieres;
 
     @OneToMany(mappedBy = "departement")
     private Set<Professeur> professeurs;

@@ -1,9 +1,7 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -25,6 +23,7 @@ public class Commentaire {
 
     @ManyToOne
     @JoinColumn
+    @EqualsAndHashCode.Exclude
     private Publication_Forum publicationForum;
 
     @ManyToOne
@@ -32,6 +31,7 @@ public class Commentaire {
     private Compte compte;
 
     @OneToMany(mappedBy = "commentaire")
-    private Set<Status> statuses;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @EqualsAndHashCode.Exclude    private Set<Status> statuses;
 
 }

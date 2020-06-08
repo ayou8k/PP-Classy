@@ -1,9 +1,7 @@
 package enset.pip.virtualclass.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -20,7 +18,8 @@ public class Filiere {
     private String description;
 
     @OneToMany(mappedBy = "filiere")
-    private Set<Classe> classes;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @EqualsAndHashCode.Exclude    private Set<Classe> classes;
 
     @ManyToOne
     @JoinColumn

@@ -1,10 +1,8 @@
 package enset.pip.virtualclass.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -19,7 +17,8 @@ public class NoteDevoir {
     @ManyToOne
     @MapsId("devoir_id")
     @JoinColumn(name = "devoir_id")
-    Publication_Devoir devoir;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @EqualsAndHashCode.Exclude Publication_Devoir devoir;
     @ManyToOne
     @MapsId("etudiant_id")
     @JoinColumn(name = "etudiant_id")
