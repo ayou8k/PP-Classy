@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@RepositoryRestResource
 @CrossOrigin("*")
 public interface AgentScolariteRepository extends JpaRepository<AgentScolarite, Long> {
 

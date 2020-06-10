@@ -18,24 +18,25 @@ public class Publication_DevoirController {
         return publication_DevoirRepository.findAll();
     }
 
-    @GetMapping(value = "listPublication_Devoirs/{id}")
+    @GetMapping(value = "GetDevoir/{id}")
     public Publication_Devoir listPublication_Devoirs(@PathVariable(name = "id") Long id) {
         return publication_DevoirRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listPublication_Devoirs/{id}")
+    @PutMapping(value = "UpdateDevoir/{id}")
     public Publication_Devoir Update(@PathVariable(name = "id") Long id, @RequestBody Publication_Devoir e) {
         e.setId(id);
         return publication_DevoirRepository.save(e);
     }
 
-    @PostMapping(value = "listPublication_Devoirs/")
+    @PostMapping(value = "createDevoir/")
     public Publication_Devoir save(@RequestBody Publication_Devoir e) {
         return publication_DevoirRepository.save(e);
     }
 
-    @DeleteMapping(value = "listPublication_Devoirs/{id}")
+    @DeleteMapping(value = "deleteDevoir/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
+
         publication_DevoirRepository.deleteById(id);
     }
 }
