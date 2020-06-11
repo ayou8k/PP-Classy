@@ -18,23 +18,23 @@ public class Publication_ForumController {
         return publication_ForumRepository.findAll();
     }
 
-    @GetMapping(value = "listPublication_Forums/{id}")
+    @GetMapping(value = "GetPublication_Forum/{id}")
     public Publication_Forum listPublication_Forums(@PathVariable(name = "id") Long id) {
         return publication_ForumRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listPublication_Forums/{id}")
+    @PutMapping(value = "UpdatePublication_Forum/{id}")
     public Publication_Forum Update(@PathVariable(name = "id") Long id, @RequestBody Publication_Forum e) {
         e.setId(id);
         return publication_ForumRepository.save(e);
     }
 
-    @PostMapping(value = "listPublication_Forums/")
+    @PostMapping(value = "CreatePublication_Forum/")
     public Publication_Forum save(@RequestBody Publication_Forum e) {
         return publication_ForumRepository.save(e);
     }
 
-    @DeleteMapping(value = "listPublication_Forums/{id}")
+    @DeleteMapping(value = "DeletePublication_Forum/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         publication_ForumRepository.deleteById(id);
     }

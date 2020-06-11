@@ -18,23 +18,23 @@ public class Publication_ProjetController {
         return publication_ProjetRepository.findAll();
     }
 
-    @GetMapping(value = "listPublication_Projets/{id}")
+    @GetMapping(value = "GetPublication_Projet/{id}")
     public Publication_Projet listPublication_Projets(@PathVariable(name = "id") Long id) {
         return publication_ProjetRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listPublication_Projets/{id}")
+    @PutMapping(value = "UpdatePublication_Projet/{id}")
     public Publication_Projet Update(@PathVariable(name = "id") Long id, @RequestBody Publication_Projet e) {
         e.setId(id);
         return publication_ProjetRepository.save(e);
     }
 
-    @PostMapping(value = "listPublication_Projets/")
+    @PostMapping(value = "CreatePublication_Projet/")
     public Publication_Projet save(@RequestBody Publication_Projet e) {
         return publication_ProjetRepository.save(e);
     }
 
-    @DeleteMapping(value = "listPublication_Projets/{id}")
+    @DeleteMapping(value = "DeletePublication_Projet/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         publication_ProjetRepository.deleteById(id);
     }

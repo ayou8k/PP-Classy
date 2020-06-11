@@ -18,23 +18,23 @@ public class Publication_CoursController {
         return publication_CoursRepository.findAll();
     }
 
-    @GetMapping(value = "listPublication_Cours/{id}")
+    @GetMapping(value = "GetPublication_Cour/{id}")
     public Publication_Cours listPublication_Cours(@PathVariable(name = "id") Long id) {
         return publication_CoursRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listPublication_Cours/{id}")
+    @PutMapping(value = "UpdatePublication_Cour/{id}")
     public Publication_Cours Update(@PathVariable(name = "id") Long id, @RequestBody Publication_Cours e) {
         e.setId(id);
         return publication_CoursRepository.save(e);
     }
 
-    @PostMapping(value = "listPublication_Cours/")
+    @PostMapping(value = "CreatePublication_Cour/")
     public Publication_Cours save(@RequestBody Publication_Cours e) {
         return publication_CoursRepository.save(e);
     }
 
-    @DeleteMapping(value = "listPublication_Cours/{id}")
+    @DeleteMapping(value = "DeletePublication_Cour/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         publication_CoursRepository.deleteById(id);
     }

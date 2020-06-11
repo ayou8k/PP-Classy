@@ -18,23 +18,23 @@ public class EtudiantController {
         return etudiantRepository.findAll();
     }
 
-    @GetMapping(value = "listEtudiants/{id}")
+    @GetMapping(value = "GetEtudiant/{id}")
     public Etudiant listEtudiants(@PathVariable(name = "id") String id) {
         return etudiantRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listEtudiants/{id}")
+    @PutMapping(value = "UpdatetEtudiant/{id}")
     public Etudiant Update(@PathVariable(name = "id") String id, @RequestBody Etudiant e) {
         e.setId(id);
         return etudiantRepository.save(e);
     }
 
-    @PostMapping(value = "listEtudiants/")
+    @PostMapping(value = "CreateEtudiant/")
     public Etudiant save(@RequestBody Etudiant e) {
         return etudiantRepository.save(e);
     }
 
-    @DeleteMapping(value = "listEtudiants/{id}")
+    @DeleteMapping(value = "DeleteEtudiant/{id}")
     public void delete(@PathVariable(name = "id") String id) {
         etudiantRepository.deleteById(id);
     }

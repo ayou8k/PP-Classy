@@ -14,27 +14,27 @@ public class MessageController {
     private MessageRepository messageRepository;
 
     @GetMapping(value = "/listMessages")
-    public List<Message> listMessages() {
+    public List<Message> listMessage() {
         return messageRepository.findAll();
     }
 
-    @GetMapping(value = "listMessages/{id}")
-    public Message listMessages(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetMessage/{id}")
+    public Message listMessage(@PathVariable(name = "id") Long id) {
         return messageRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listMessages/{id}")
+    @PutMapping(value = "UpdateMessage/{id}")
     public Message Update(@PathVariable(name = "id") Long id, @RequestBody Message e) {
         e.setId(id);
         return messageRepository.save(e);
     }
 
-    @PostMapping(value = "listMessages/")
+    @PostMapping(value = "CreateMessage/")
     public Message save(@RequestBody Message e) {
         return messageRepository.save(e);
     }
 
-    @DeleteMapping(value = "listMessages/{id}")
+    @DeleteMapping(value = "DeleteMessage/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         messageRepository.deleteById(id);
     }

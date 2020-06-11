@@ -18,23 +18,23 @@ public class ProfesseurController {
         return professeurRepository.findAll();
     }
 
-    @GetMapping(value = "listProfesseurs/{id}")
+    @GetMapping(value = "GetProfesseur/{id}")
     public Professeur listProfesseurs(@PathVariable(name = "id") Long id) {
         return professeurRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listProfesseurs/{id}")
+    @PutMapping(value = "UpdateProfesseur/{id}")
     public Professeur Update(@PathVariable(name = "id") Long id, @RequestBody Professeur e) {
         e.setId(id);
         return professeurRepository.save(e);
     }
 
-    @PostMapping(value = "listProfesseurs/")
+    @PostMapping(value = "CreateProfesseur/")
     public Professeur save(@RequestBody Professeur e) {
         return professeurRepository.save(e);
     }
 
-    @DeleteMapping(value = "listProfesseurs/{id}")
+    @DeleteMapping(value = "DeleteProfesseur/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         professeurRepository.deleteById(id);
     }

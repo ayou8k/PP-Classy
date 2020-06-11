@@ -14,27 +14,27 @@ public class ModuleController {
     private ModuleRepository moduleRepository;
 
     @GetMapping(value = "/listModules")
-    public List<Module> listModules() {
+    public List<Module> listModule() {
         return moduleRepository.findAll();
     }
 
-    @GetMapping(value = "listModules/{id}")
-    public Module listModules(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetModule/{id}")
+    public Module listModule(@PathVariable(name = "id") Long id) {
         return moduleRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listModules/{id}")
+    @PutMapping(value = "UpdateModule/{id}")
     public Module Update(@PathVariable(name = "id") Long id, @RequestBody Module e) {
         e.setId(id);
         return moduleRepository.save(e);
     }
 
-    @PostMapping(value = "listModules/")
+    @PostMapping(value = "CreateModule/")
     public Module save(@RequestBody Module e) {
         return moduleRepository.save(e);
     }
 
-    @DeleteMapping(value = "listModules/{id}")
+    @DeleteMapping(value = "DeleteModule/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         moduleRepository.deleteById(id);
     }

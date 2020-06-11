@@ -14,27 +14,27 @@ public class DepartementController {
     private DepartementRepository departementRepository;
 
     @GetMapping(value = "/listDepartements")
-    public List<Departement> listDepartements() {
+    public List<Departement> listDepartement() {
         return departementRepository.findAll();
     }
 
-    @GetMapping(value = "listDepartements/{id}")
-    public Departement listDepartements(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetDepartement/{id}")
+    public Departement listDepartement(@PathVariable(name = "id") Long id) {
         return departementRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listDepartements/{id}")
+    @PutMapping(value = "UpdateDepartement/{id}")
     public Departement Update(@PathVariable(name = "id") Long id, @RequestBody Departement e) {
         e.setId(id);
         return departementRepository.save(e);
     }
 
-    @PostMapping(value = "listDepartements/")
+    @PostMapping(value = "CreateDepartement/")
     public Departement save(@RequestBody Departement e) {
         return departementRepository.save(e);
     }
 
-    @DeleteMapping(value = "listDepartements/{id}")
+    @DeleteMapping(value = "DeleteDepartement/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         departementRepository.deleteById(id);
     }

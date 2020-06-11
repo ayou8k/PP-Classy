@@ -19,23 +19,23 @@ public class NoteDevoirController {
         return noteDevoirRepository.findAll();
     }
 
-    @GetMapping(value = "listNoteDevoirs/{id}")
+    @GetMapping(value = "GetNoteDevoir/{id}")
     public NoteDevoir listNoteDevoirs(@PathVariable(name = "id") NoteDevoirCle id) {
         return noteDevoirRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listNoteDevoirs/{id}")
+    @PutMapping(value = "UpdateNoteDevoir/{id}")
     public NoteDevoir Update(@PathVariable(name = "id") NoteDevoirCle id, @RequestBody NoteDevoir e) {
         e.setId(id);
         return noteDevoirRepository.save(e);
     }
 
-    @PostMapping(value = "listNoteDevoirs/")
+    @PostMapping(value = "CreateNoteDevoir/")
     public NoteDevoir save(@RequestBody NoteDevoir e) {
         return noteDevoirRepository.save(e);
     }
 
-    @DeleteMapping(value = "listNoteDevoirs/{id}")
+    @DeleteMapping(value = "DeleteNoteDevoir/{id}")
     public void delete(@PathVariable(name = "id") NoteDevoirCle id) {
         noteDevoirRepository.deleteById(id);
     }

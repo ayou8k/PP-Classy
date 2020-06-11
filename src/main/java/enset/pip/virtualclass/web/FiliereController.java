@@ -14,27 +14,27 @@ public class FiliereController {
     private FiliereRepository filiereRepository;
 
     @GetMapping(value = "/listFilieres")
-    public List<Filiere> listFilieres() {
+    public List<Filiere> listFiliere() {
         return filiereRepository.findAll();
     }
 
-    @GetMapping(value = "listFilieres/{id}")
-    public Filiere listFilieres(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetFiliere/{id}")
+    public Filiere listFiliere(@PathVariable(name = "id") Long id) {
         return filiereRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listFilieres/{id}")
+    @PutMapping(value = "UpdateFiliere/{id}")
     public Filiere Update(@PathVariable(name = "id") Long id, @RequestBody Filiere e) {
         e.setId(id);
         return filiereRepository.save(e);
     }
 
-    @PostMapping(value = "listFilieres/")
+    @PostMapping(value = "CreateFiliere/")
     public Filiere save(@RequestBody Filiere e) {
         return filiereRepository.save(e);
     }
 
-    @DeleteMapping(value = "listFilieres/{id}")
+    @DeleteMapping(value = "DeleteFiliere/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         filiereRepository.deleteById(id);
     }

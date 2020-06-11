@@ -14,27 +14,27 @@ public class AnneeUniversitaireController {
     private AnneeUniversitaireRepository anneeUniversitaireRepository;
 
     @GetMapping(value = "/listAnneeUniversitaires")
-    public List<AnneeUniversitaire> listAnneeUniversitaires() {
+    public List<AnneeUniversitaire> listAnneeUniversitaire() {
         return anneeUniversitaireRepository.findAll();
     }
 
-    @GetMapping(value = "listAnneeUniversitaires/{id}")
-    public AnneeUniversitaire listAnneeUniversitaires(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetAnneeUniversitaire/{id}")
+    public AnneeUniversitaire listAnneeUniversitaire(@PathVariable(name = "id") Long id) {
         return anneeUniversitaireRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listAnneeUniversitaires/{id}")
+    @PutMapping(value = "UpdateAnneeUniversitaire/{id}")
     public AnneeUniversitaire Update(@PathVariable(name = "id") Long id, @RequestBody AnneeUniversitaire e) {
         e.setId(id);
         return anneeUniversitaireRepository.save(e);
     }
 
-    @PostMapping(value = "listAnneeUniversitaires/")
+    @PostMapping(value = "CreateAnneeUniversitaire/")
     public AnneeUniversitaire save(@RequestBody AnneeUniversitaire e) {
         return anneeUniversitaireRepository.save(e);
     }
 
-    @DeleteMapping(value = "listAnneeUniversitaires/{id}")
+    @DeleteMapping(value = "DeleteAnneeUniversitaire/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         anneeUniversitaireRepository.deleteById(id);
     }

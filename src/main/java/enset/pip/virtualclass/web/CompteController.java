@@ -14,27 +14,27 @@ public class CompteController {
     private CompteRepository compteRepository;
 
     @GetMapping(value = "/listComptes")
-    public List<Compte> listComptes() {
+    public List<Compte> listCompte() {
         return compteRepository.findAll();
     }
 
-    @GetMapping(value = "listComptes/{id}")
-    public Compte listComptes(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetCompte/{id}")
+    public Compte listCompte(@PathVariable(name = "id") Long id) {
         return compteRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listComptes/{id}")
+    @PutMapping(value = "UpdateCompte/{id}")
     public Compte Update(@PathVariable(name = "id") Long id, @RequestBody Compte e) {
         e.setId(id);
         return compteRepository.save(e);
     }
 
-    @PostMapping(value = "listComptes/")
+    @PostMapping(value = "CreateCompte/")
     public Compte save(@RequestBody Compte e) {
         return compteRepository.save(e);
     }
 
-    @DeleteMapping(value = "listComptes/{id}")
+    @DeleteMapping(value = "DeleteCompte/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         compteRepository.deleteById(id);
     }

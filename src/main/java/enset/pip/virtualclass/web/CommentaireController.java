@@ -14,27 +14,27 @@ public class CommentaireController {
     private CommentaireRepository commentaireRepository;
 
     @GetMapping(value = "/listCommentaires")
-    public List<Commentaire> listCommentaires() {
+    public List<Commentaire> listCommentaire() {
         return commentaireRepository.findAll();
     }
 
-    @GetMapping(value = "listCommentaires/{id}")
-    public Commentaire listCommentaires(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetCommentaire/{id}")
+    public Commentaire listCommentaire(@PathVariable(name = "id") Long id) {
         return commentaireRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listCommentaires/{id}")
+    @PutMapping(value = "UpdateCommentaire/{id}")
     public Commentaire Update(@PathVariable(name = "id") Long id, @RequestBody Commentaire e) {
         e.setId(id);
         return commentaireRepository.save(e);
     }
 
-    @PostMapping(value = "listCommentaires/")
+    @PostMapping(value = "CreateCommentaire/")
     public Commentaire save(@RequestBody Commentaire e) {
         return commentaireRepository.save(e);
     }
 
-    @DeleteMapping(value = "listCommentaires/{id}")
+    @DeleteMapping(value = "DeleteCommentaire/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         commentaireRepository.deleteById(id);
     }

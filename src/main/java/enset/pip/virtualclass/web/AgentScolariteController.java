@@ -13,27 +13,27 @@ public class AgentScolariteController {
     private AgentScolariteRepository agentScolariteRepository;
 
     @GetMapping(value = "/listAgentScolarites")
-    public List<AgentScolarite> listAgentScolarites() {
+    public List<AgentScolarite> listAgentScolarite() {
         return agentScolariteRepository.findAll();
     }
 
-    @GetMapping(value = "listAgentScolarites/{id}")
-    public AgentScolarite listAgentScolarites(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetAgentScolarite/{id}")
+    public AgentScolarite listAgentScolarite(@PathVariable(name = "id") Long id) {
         return agentScolariteRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listAgentScolarites/{id}")
+    @PutMapping(value = "UpdateAgentScolarite/{id}")
     public AgentScolarite Update(@PathVariable(name = "id") Long id, @RequestBody AgentScolarite e) {
         e.setId(id);
         return agentScolariteRepository.save(e);
     }
 
-    @PostMapping(value = "listAgentScolarites/")
+    @PostMapping(value = "CreateAgentScolarite/")
     public AgentScolarite save(@RequestBody AgentScolarite e) {
         return agentScolariteRepository.save(e);
     }
 
-    @DeleteMapping(value = "listAgentScolarites/{id}")
+    @DeleteMapping(value = "DeleteAgentScolarite/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         agentScolariteRepository.deleteById(id);
     }

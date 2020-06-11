@@ -18,23 +18,23 @@ public class RoleController {
         return roleRepository.findAll();
     }
 
-    @GetMapping(value = "listRoles/{id}")
+    @GetMapping(value = "GetRole/{id}")
     public Role listRoles(@PathVariable(name = "id") Long id) {
         return roleRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listRoles/{id}")
+    @PutMapping(value = "UpdateRole/{id}")
     public Role Update(@PathVariable(name = "id") Long id, @RequestBody Role e) {
         e.setId(id);
         return roleRepository.save(e);
     }
 
-    @PostMapping(value = "listRoles/")
+    @PostMapping(value = "CreateRole/")
     public Role save(@RequestBody Role e) {
         return roleRepository.save(e);
     }
 
-    @DeleteMapping(value = "listRoles/{id}")
+    @DeleteMapping(value = "DeleteRole/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         roleRepository.deleteById(id);
     }

@@ -13,7 +13,7 @@ public class Publication_DevoirController {
     @Autowired
     private Publication_DevoirRepository publication_DevoirRepository;
 
-    @GetMapping(value = "/listPublication_Devoirs")
+    @GetMapping(value = "/listDevoirs")
     public List<Publication_Devoir> listPublication_Devoirs() {
         return publication_DevoirRepository.findAll();
     }

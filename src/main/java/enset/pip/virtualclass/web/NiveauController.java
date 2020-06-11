@@ -18,23 +18,23 @@ public class NiveauController {
         return niveauRepository.findAll();
     }
 
-    @GetMapping(value = "listNiveaux/{id}")
+    @GetMapping(value = "GetNiveau/{id}")
     public Niveau listNiveaux(@PathVariable(name = "id") Long id) {
         return niveauRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listNiveaux/{id}")
+    @PutMapping(value = "UpdateNiveau/{id}")
     public Niveau Update(@PathVariable(name = "id") Long id, @RequestBody Niveau e) {
         e.setId(id);
         return niveauRepository.save(e);
     }
 
-    @PostMapping(value = "listNiveaux/")
+    @PostMapping(value = "CreateNiveau/")
     public Niveau save(@RequestBody Niveau e) {
         return niveauRepository.save(e);
     }
 
-    @DeleteMapping(value = "listNiveaux/{id}")
+    @DeleteMapping(value = "DeleteNiveau/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         niveauRepository.deleteById(id);
     }

@@ -18,23 +18,23 @@ public class PermissionController {
         return permissionRepository.findAll();
     }
 
-    @GetMapping(value = "listPermissions/{id}")
+    @GetMapping(value = "GetPermission/{id}")
     public Permission listPermissions(@PathVariable(name = "id") Long id) {
         return permissionRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listPermissions/{id}")
+    @PutMapping(value = "UpdatePermission/{id}")
     public Permission Update(@PathVariable(name = "id") Long id, @RequestBody Permission e) {
         e.setId(id);
         return permissionRepository.save(e);
     }
 
-    @PostMapping(value = "listPermissions/")
+    @PostMapping(value = "CreatePermission/")
     public Permission save(@RequestBody Permission e) {
         return permissionRepository.save(e);
     }
 
-    @DeleteMapping(value = "listPermissions/{id}")
+    @DeleteMapping(value = "DeletePermission/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         permissionRepository.deleteById(id);
     }

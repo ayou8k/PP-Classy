@@ -19,23 +19,23 @@ public class NoteTacheController {
         return noteTacheRepository.findAll();
     }
 
-    @GetMapping(value = "listNoteTaches/{id}")
+    @GetMapping(value = "GetNoteTache/{id}")
     public NoteTache listNoteTaches(@PathVariable(name = "id") NoteTacheCle id) {
         return noteTacheRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listNoteTaches/{id}")
+    @PutMapping(value = "UpdateNoteTache/{id}")
     public NoteTache Update(@PathVariable(name = "id") NoteTacheCle id, @RequestBody NoteTache e) {
         e.setId(id);
         return noteTacheRepository.save(e);
     }
 
-    @PostMapping(value = "listNoteTaches/")
+    @PostMapping(value = "CreateNoteTache/")
     public NoteTache save(@RequestBody NoteTache e) {
         return noteTacheRepository.save(e);
     }
 
-    @DeleteMapping(value = "listNoteTaches/{id}")
+    @DeleteMapping(value = "DeleteNoteTache/{id}")
     public void delete(@PathVariable(name = "id") NoteTacheCle id) {
         noteTacheRepository.deleteById(id);
     }

@@ -14,27 +14,27 @@ public class CategorieController {
     private CategorieRepository categorieRepository;
 
     @GetMapping(value = "/listCategories")
-    public List<Categorie> listCategories() {
+    public List<Categorie> listCategorie() {
         return categorieRepository.findAll();
     }
 
-    @GetMapping(value = "listCategories/{id}")
-    public Categorie listCategories(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetCategorie/{id}")
+    public Categorie listCategorie(@PathVariable(name = "id") Long id) {
         return categorieRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listCategories/{id}")
+    @PutMapping(value = "UpdateCategorie/{id}")
     public Categorie Update(@PathVariable(name = "id") Long id, @RequestBody Categorie e) {
         e.setId(id);
         return categorieRepository.save(e);
     }
 
-    @PostMapping(value = "listCategories/")
+    @PostMapping(value = "CreateCategorie/")
     public Categorie save(@RequestBody Categorie e) {
         return categorieRepository.save(e);
     }
 
-    @DeleteMapping(value = "listCategories/{id}")
+    @DeleteMapping(value = "DeleteCategorie/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         categorieRepository.deleteById(id);
     }

@@ -14,27 +14,27 @@ public class ClasseController {
     private ClasseRepository classeRepository;
 
     @GetMapping(value = "/listClasses")
-    public List<Classe> listClasses() {
+    public List<Classe> listClasse() {
         return classeRepository.findAll();
     }
 
-    @GetMapping(value = "listClasses/{id}")
-    public Classe listClasses(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetClasse/{id}")
+    public Classe listClasse(@PathVariable(name = "id") Long id) {
         return classeRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listClasses/{id}")
+    @PutMapping(value = "UpdateClasse/{id}")
     public Classe Update(@PathVariable(name = "id") Long id, @RequestBody Classe e) {
         e.setId(id);
         return classeRepository.save(e);
     }
 
-    @PostMapping(value = "listClasses/")
+    @PostMapping(value = "CreateClasse/")
     public Classe save(@RequestBody Classe e) {
         return classeRepository.save(e);
     }
 
-    @DeleteMapping(value = "listClasses/{id}")
+    @DeleteMapping(value = "DeleteClasse/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         classeRepository.deleteById(id);
     }

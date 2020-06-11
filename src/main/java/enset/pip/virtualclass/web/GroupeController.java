@@ -14,27 +14,27 @@ public class GroupeController {
     private GroupeRepository groupeRepository;
 
     @GetMapping(value = "/listGroupes")
-    public List<Groupe> listGroupes() {
+    public List<Groupe> listGroupe() {
         return groupeRepository.findAll();
     }
 
-    @GetMapping(value = "listGroupes/{id}")
-    public Groupe listGroupes(@PathVariable(name = "id") Long id) {
+    @GetMapping(value = "GetGroupe/{id}")
+    public Groupe listGroupe(@PathVariable(name = "id") Long id) {
         return groupeRepository.findById(id).orElse(null);
     }
 
-    @PutMapping(value = "listGroupes/{id}")
+    @PutMapping(value = "UpdateGroupe/{id}")
     public Groupe Update(@PathVariable(name = "id") Long id, @RequestBody Groupe e) {
         e.setId(id);
         return groupeRepository.save(e);
     }
 
-    @PostMapping(value = "listGroupes/")
+    @PostMapping(value = "CreateGroupe/")
     public Groupe save(@RequestBody Groupe e) {
         return groupeRepository.save(e);
     }
 
-    @DeleteMapping(value = "listGroupes/{id}")
+    @DeleteMapping(value = "DeleteGroupe/{id}")
     public void delete(@PathVariable(name = "id") Long id) {
         groupeRepository.deleteById(id);
     }
