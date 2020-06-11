@@ -29,14 +29,14 @@ public class Publication_DevoirController {
         return publication_DevoirRepository.save(e);
     }
 
-    @PostMapping(value = "createDevoir/")
+    @PostMapping("/CreateDevoir")
     public Publication_Devoir save(@RequestBody Publication_Devoir e) {
         return publication_DevoirRepository.save(e);
     }
 
-    @DeleteMapping(value = "deleteDevoir/{id}")
-    public void delete(@PathVariable(name = "id") Long id) {
-
+    @DeleteMapping(value = "/DeleteDevoir/{id}")
+    public void delete(@PathVariable Long id){
         publication_DevoirRepository.deleteById(id);
     }
+
 }

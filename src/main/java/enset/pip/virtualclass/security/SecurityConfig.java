@@ -18,18 +18,21 @@ import javax.sql.DataSource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.inMemoryAuthentication().withUser("user1").password("{noop}1234").roles("USER");
 
 //        auth.jdbcAuthentication()
 //                .dataSource(dataSource)
 //                .usersByUsernameQuery("select login as principal,password as credentials from compte where login=?")
 //                .authoritiesByUsernameQuery("select from roles");
-    }
+//    }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception{
+        //fixed the forbidden access to Create and Delete
+        http.cors().and().csrf().disable();
+
 //        http.formLogin();
 //        http.httpBasic();
 
