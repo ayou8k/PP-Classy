@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Inheritance(
-        strategy = InheritanceType.TABLE_PER_CLASS
+        strategy = InheritanceType.JOINED
 )
 public class Publication_Cours {
     @Id
