@@ -1,5 +1,6 @@
 package enset.pip.virtualclass.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,9 +12,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Inheritance(
-        strategy = InheritanceType.JOINED
-)
+//@Inheritance(
+//        strategy = InheritanceType.JOINED
+//)
 public class Publication_Cours {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +26,8 @@ public class Publication_Cours {
     String pieces_jointes;
     //ELEMENT MODULE
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @EqualsAndHashCode.Exclude
     Element_module element_module;
 
 }

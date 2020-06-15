@@ -13,10 +13,20 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Publication_Projet extends Publication_Cours {
+public class Publication_Projet  {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long Id;
+    String titre;
+    String contenu;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    Date datePublication;
+    String pieces_jointes;
+    //ELEMENT MODULE
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    Element_module element_module;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     Date dateDebutProjet;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

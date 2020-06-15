@@ -31,4 +31,10 @@ public class Element_module {
     @OneToMany(mappedBy = "element_module")
     @EqualsAndHashCode.Exclude
     Set<Publication_Cours> Publication_Cours;
+    @OneToMany(mappedBy = "element_module")
+    @EqualsAndHashCode.Exclude
+    Set<Publication_Devoir> Publication_Devoirs;
+    @OneToMany(mappedBy = "element_module")
+    @EqualsAndHashCode.Exclude
+    Set<Publication_Projet> Publication_Projets;
 }
